@@ -1,0 +1,17 @@
+Repaso ADO.NET
+
+Procedimientos Almacenados
+
+ABMC Maestro-detalle
+
+es una asociacion enrte dos bloques de datos que refleja una relacion de clave primaria - clave foranea entre tablas
+	
+* Hacer algunos ejercicios de la guia, para pracicar
+
+* crear modelo de datos(base de datos) junto con un SP para consultar con filtros
+
+SQL PARA VR LOS PROCEDIMIEBTOS ALMACENADOS
+
+DONDE VEO LAS BASE DE DATOS, VVOY A LA CARPETA PROGRAMMABILITY Y AHI ESTAN LOS PROCEDIMIENTOS
+
+prop tab tab
