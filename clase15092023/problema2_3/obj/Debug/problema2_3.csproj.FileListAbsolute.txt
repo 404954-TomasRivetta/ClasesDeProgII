@@ -1,0 +1,11 @@
+C:\Users\alumno\Downloads\clase15092023\problema2_3\bin\Debug\problema2_3.exe.config
+C:\Users\alumno\Downloads\clase15092023\problema2_3\bin\Debug\problema2_3.exe
+C:\Users\alumno\Downloads\clase15092023\problema2_3\bin\Debug\problema2_3.pdb
+C:\Users\alumno\Downloads\clase15092023\problema2_3\obj\Debug\problema2_3.csproj.AssemblyReference.cache
+C:\Users\alumno\Downloads\clase15092023\problema2_3\obj\Debug\problema2_3.csproj.SuggestedBindingRedirects.cache
+C:\Users\alumno\Downloads\clase15092023\problema2_3\obj\Debug\problema2_3.FrmProducto.resources
+C:\Users\alumno\Downloads\clase15092023\problema2_3\obj\Debug\problema2_3.Properties.Resources.resources
+C:\Users\alumno\Downloads\clase15092023\problema2_3\obj\Debug\problema2_3.csproj.GenerateResource.cache
+C:\Users\alumno\Downloads\clase15092023\problema2_3\obj\Debug\problema2_3.csproj.CoreCompileInputs.cache
+C:\Users\alumno\Downloads\clase15092023\problema2_3\obj\Debug\problema2_3.exe
+C:\Users\alumno\Downloads\clase15092023\problema2_3\obj\Debug\problema2_3.pdb
