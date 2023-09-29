@@ -41,5 +41,15 @@ namespace PresupuestoCarpinteria.Presentacion
         {
 
         }
+
+        private void productosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void consultarToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
