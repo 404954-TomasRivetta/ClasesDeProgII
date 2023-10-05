@@ -36,6 +36,12 @@ namespace CarpinteriaApp.Datos
             return instancia;
         }
 
+        //para que PresupuestoDAO pueda acceder a la cadena de conexion
+        public SqlConnection ObtenerConexion()
+        {
+            return conexion;
+        }
+
         //PROXIMO NRO PRESUPUESTO - recibo el nombre del sp y el param de salida
         public int ConsultarEscalar(string nombreSP,string paramSalida)
         {
@@ -146,12 +152,6 @@ namespace CarpinteriaApp.Datos
             }
 
             return resultado;
-        }
-
-        //para que PresupuestoDAO pueda acceder a la cadena de conexion
-        public SqlConnection ObtenerConexion()
-        {
-            return conexion;
         }
     }
 }

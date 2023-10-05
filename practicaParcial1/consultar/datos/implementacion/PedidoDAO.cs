@@ -8,6 +8,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace consultar.datos.implementacion
@@ -61,68 +62,32 @@ namespace consultar.datos.implementacion
             return lPedido;
         }
 
-        public bool BorrarPedido(int nro)
+        public void BorrarPedido(int nro)
         {
-            bool aux = true;
-            SqlConnection conexion = DBHelper.getInstance().getConexion();
-            SqlTransaction transaccion = null;
-            try
+
+            List<Parametro> lista = new List<Parametro>();
+            lista.Add(new Parametro("@codigo", nro));
+            int afectadas = DBHelper.getInstance().EjecutarSQL("SP_REGISTRAR_BAJA", lista);
+            if (afectadas == 0)
             {
-                conexion.Open();
-                transaccion = conexion.BeginTransaction();
-                SqlCommand comando = new SqlCommand("SP_REGISTRAR_BAJA", conexion, transaccion);
-                comando.CommandType = CommandType.StoredProcedure;
-                Parametro param = new Parametro("@codigo", nro);
-                comando.Parameters.AddWithValue(param.Clave, param.Valor);
-                comando.ExecuteNonQuery();
-                transaccion.Commit();
+                MessageBox.Show("El pedido ya esta dado de baja.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-            catch
-            {
-                if (transaccion != null)
-                {
-                    transaccion.Rollback();
-                    aux = false;
-                }
-            }
-            finally
-            {
-                if (conexion != null && conexion.State == ConnectionState.Open)
-                    conexion.Close();
-            }
-            return aux;
+            else MessageBox.Show("Se dio de baja el pedido ", "Informe", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
         }
 
-        public bool EntregarPedido(int nro)
+        public void EntregarPedido(int nro)
         {
-            bool aux = true;
-            SqlConnection conexion = DBHelper.getInstance().getConexion();
-            SqlTransaction transaccion = null;
-            try
+            List<Parametro> lista = new List<Parametro>();
+            lista.Add(new Parametro("@codigo", nro));
+            int afectadas = DBHelper.getInstance().EjecutarSQL("SP_REGISTRAR_ENTREGA",lista);
+            if (afectadas == 0)
             {
-                conexion.Open();
-                transaccion = conexion.BeginTransaction();
-                SqlCommand comando = new SqlCommand("SP_REGISTRAR_ENTREGA", conexion, transaccion);
-                comando.CommandType = CommandType.StoredProcedure;
-                Parametro param = new Parametro("@codigo", nro);
-                comando.Parameters.AddWithValue(param.Clave, param.Valor);
-                comando.ExecuteNonQuery();
-                transaccion.Commit();
+                MessageBox.Show("El producto ya se encuentra entregado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-            catch
-            {
-                if (transaccion != null)
-                {
-                    transaccion.Rollback();
-                    aux = false;
-                }
-            }
-            finally
-            {
-                if (conexion != null && conexion.State == ConnectionState.Open)
-                    conexion.Close();
-            }
-            return aux;
+            else {             
+                MessageBox.Show("Se entregó el producto. ", "Informe", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            } 
         }
     }
 }

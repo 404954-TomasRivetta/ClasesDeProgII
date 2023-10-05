@@ -13,8 +13,8 @@ namespace consultar.Servicios.interfaz
 
         List<Pedido> TraerPedidosFiltrados(DateTime fechaDesde,DateTime fechaHasta,int codCliente );
 
-        bool BorrarOrden(int nro);
+        void BorrarOrden(int nro);
 
-        bool EntregarPedido(int nro);
+        void EntregarPedido(int nro);
     }
 }

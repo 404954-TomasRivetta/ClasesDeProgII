@@ -63,9 +63,7 @@ namespace consultar.presentaciones
                 });
             }
 
-            lblTotal.Text = "Total de pedidos:";
-            lblTotal.Text =lblTotal.Text +' '+ lPedidos.Count.ToString();
-
+            lblTotal.Text = "Total de pedidos: " + dgvPedidos.RowCount;
         }
 
         private void dgvPedidos_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -77,51 +75,16 @@ namespace consultar.presentaciones
             if (dgvPedidos.CurrentCell.ColumnIndex == 4)
             {
 
-                if (true)
-                {
-                    if (MessageBox.Show("Esta seguro que desea ENTREGAR el pedido?", "Entrega", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
-                    {
-                        int nro = Convert.ToInt32(dgvPedidos.CurrentRow.Cells["colCodigo"].Value.ToString());
-                        if (servicio.EntregarPedido(nro))
-                        {
-                            MessageBox.Show("Pedido entregado con exito", "Entrega",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
-                        }
-                        else
-                        {
-                            MessageBox.Show("El Pedido No se entrego", "Entrega", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                int nro = Convert.ToInt32(dgvPedidos.CurrentRow.Cells["colCodigo"].Value.ToString());
 
-                        }
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Este pedido ya fue entregado", "Entrega", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
+                servicio.EntregarPedido(nro);
             }
 
             if (dgvPedidos.CurrentCell.ColumnIndex == 5)
             {
+                int nro = int.Parse(dgvPedidos.CurrentRow.Cells["colCodigo"].Value.ToString());
 
-                if (MessageBox.Show("Seguro que desea quitar el presupuesto seleccionado?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    if (dgvPedidos.CurrentRow != null)
-                    {
-                        int nro = int.Parse(dgvPedidos.CurrentRow.Cells["colCodigo"].Value.ToString());
-
-                        bool borro = servicio.BorrarOrden(nro);
-
-                        if (borro == true)
-                        {
-                            MessageBox.Show("El pedido SI se quitó exitosamente!", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            this.btnConsultar_Click(sender, e);
-                        }
-                        else
-                        {
-                            MessageBox.Show("El pedido NO se quitó!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-
-                    }
-                }
+                servicio.BorrarOrden(nro);
             }
         }
 

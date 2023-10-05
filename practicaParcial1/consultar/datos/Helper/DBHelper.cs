@@ -79,5 +79,47 @@ namespace consultar.datos
 
         }
 
+        public int EjecutarSQL(string strSql, List<Parametro> values)
+        {
+            int afectadas = 0;
+            SqlTransaction t = null;
+
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                conexion.Open();
+                t = conexion.BeginTransaction();
+                cmd.Connection = conexion;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = strSql;
+                cmd.Transaction = t;
+
+                if (values != null)
+                {
+                    foreach (Parametro param in values)
+                    {
+                        cmd.Parameters.AddWithValue(param.Clave, param.Valor);
+                    }
+                }
+
+                afectadas = cmd.ExecuteNonQuery();
+                t.Commit();
+            }
+            catch (SqlException)
+            {
+                if (t != null) { t.Rollback(); }
+            }
+            finally
+            {
+                if (conexion != null && conexion.State == ConnectionState.Open)
+                    conexion.Close();
+
+            }
+
+            return afectadas;
+        }
+
+
+
     }
 }

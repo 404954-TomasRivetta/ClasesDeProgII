@@ -22,14 +22,14 @@ namespace consultar.Servicios.implementacion
             
         }
 
-        public bool BorrarOrden(int nro)
+        public void BorrarOrden(int nro)
         {
-            return dao.BorrarPedido(nro);
+            dao.BorrarPedido(nro);
         }
 
-        public bool EntregarPedido(int nro)
+        public void EntregarPedido(int nro)
         {
-            return dao.EntregarPedido(nro);
+            dao.EntregarPedido(nro);
         }
 
         public List<Cliente> TraerClientes()

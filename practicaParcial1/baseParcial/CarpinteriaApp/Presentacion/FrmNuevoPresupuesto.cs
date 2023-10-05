@@ -20,11 +20,6 @@ namespace CarpinteriaApp.Presentacion
 {
     public partial class FrmNuevoPresupuesto : Form
     {
-        //pantalla
-        //servicio
-        //pide servicio al DAO
-        //DAO BRINDA SERVICIO CONEXION AL HELPER
-        //Y EL HELPER DEVUELVE HELPER
 
         IServicio servicio = null;
 
@@ -37,15 +32,10 @@ namespace CarpinteriaApp.Presentacion
 
             nuevo= new Presupuesto();
 
-           
-
         }
 
         private void FrmNuevoPresupuesto_Load(object sender, EventArgs e)
         {
-
-
-
 
             txtFecha.Text = DateTime.Today.ToShortDateString();
             txtCliente.Text = "Consumidor Final";
@@ -84,20 +74,12 @@ namespace CarpinteriaApp.Presentacion
                 }
             }
 
-            //DataRowView item = (DataRowView)cboProducto.SelectedItem;
-            //int nro = Convert.ToInt32(item.Row.ItemArray[0]);
-            //string nom = item.Row.ItemArray[1].ToString();
-            //double pre = Convert.ToDouble(item.Row.ItemArray[2]);
-
             Producto p = (Producto)cboProducto.SelectedItem;
             int cant = Convert.ToInt32(txtCantidad.Text);
             DetallePresupuesto detalle= new DetallePresupuesto(p, cant);
 
             nuevo.AgregarDetalle(detalle);
-            //dgvDetalles.Rows.Add(new object[] { detalle.Producto.ProductoNro,
-            //                                    detalle.Producto.Nombre,
-            //                                    detalle.Producto.Precio,
-            //                                    detalle.Cantidad});
+
             dgvDetalles.Rows.Add(new object[] { p.ProductoNro,p.Nombre,p.Precio,cant,"Quitar"});
 
             CalcularTotales();

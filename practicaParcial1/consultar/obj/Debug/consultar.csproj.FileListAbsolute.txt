@@ -8,3 +8,13 @@ C:\Users\CESAR\Desktop\practicaParcial\consultar\bin\Debug\consultar.pdb
 C:\Users\CESAR\Desktop\practicaParcial\consultar\obj\Debug\consultar.exe
 C:\Users\CESAR\Desktop\practicaParcial\consultar\obj\Debug\consultar.pdb
 C:\Users\CESAR\Desktop\practicaParcial\consultar\obj\Debug\consultar.presentaciones.FrmConsultar.resources
+C:\Users\CESAR\Desktop\toto\repositoriosProg\ClasesDeProgII\practicaParcial1\consultar\bin\Debug\consultar.exe.config
+C:\Users\CESAR\Desktop\toto\repositoriosProg\ClasesDeProgII\practicaParcial1\consultar\bin\Debug\consultar.exe
+C:\Users\CESAR\Desktop\toto\repositoriosProg\ClasesDeProgII\practicaParcial1\consultar\bin\Debug\consultar.pdb
+C:\Users\CESAR\Desktop\toto\repositoriosProg\ClasesDeProgII\practicaParcial1\consultar\obj\Debug\consultar.csproj.AssemblyReference.cache
+C:\Users\CESAR\Desktop\toto\repositoriosProg\ClasesDeProgII\practicaParcial1\consultar\obj\Debug\consultar.presentaciones.FrmConsultar.resources
+C:\Users\CESAR\Desktop\toto\repositoriosProg\ClasesDeProgII\practicaParcial1\consultar\obj\Debug\consultar.Properties.Resources.resources
+C:\Users\CESAR\Desktop\toto\repositoriosProg\ClasesDeProgII\practicaParcial1\consultar\obj\Debug\consultar.csproj.GenerateResource.cache
+C:\Users\CESAR\Desktop\toto\repositoriosProg\ClasesDeProgII\practicaParcial1\consultar\obj\Debug\consultar.csproj.CoreCompileInputs.cache
+C:\Users\CESAR\Desktop\toto\repositoriosProg\ClasesDeProgII\practicaParcial1\consultar\obj\Debug\consultar.exe
+C:\Users\CESAR\Desktop\toto\repositoriosProg\ClasesDeProgII\practicaParcial1\consultar\obj\Debug\consultar.pdb
