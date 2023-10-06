@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RecetasSLN.servicios;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace RecetasSLN
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Frm_Alta());
+            Application.Run(new Frm_Alta(new fabricaServicioImp()));
         }
     }
 }

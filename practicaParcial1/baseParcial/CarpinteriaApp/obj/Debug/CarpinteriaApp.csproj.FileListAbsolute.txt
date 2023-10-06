@@ -54,3 +54,16 @@ C:\Users\alumno\Downloads\clase29092023\CarpinteriaApp\obj\Debug\CarpinteriaApp.
 C:\Users\alumno\Downloads\clase29092023\CarpinteriaApp\bin\Debug\CarpinteriaApp.exe.config
 C:\Users\alumno\Downloads\clase29092023\CarpinteriaApp\bin\Debug\CarpinteriaApp.exe
 C:\Users\alumno\Downloads\clase29092023\CarpinteriaApp\bin\Debug\CarpinteriaApp.pdb
+C:\Users\CESAR\Desktop\toto\repositoriosProg\ClasesDeProgII\practicaParcial1\baseParcial\CarpinteriaApp\bin\Debug\CarpinteriaApp.exe.config
+C:\Users\CESAR\Desktop\toto\repositoriosProg\ClasesDeProgII\practicaParcial1\baseParcial\CarpinteriaApp\bin\Debug\CarpinteriaApp.exe
+C:\Users\CESAR\Desktop\toto\repositoriosProg\ClasesDeProgII\practicaParcial1\baseParcial\CarpinteriaApp\bin\Debug\CarpinteriaApp.pdb
+C:\Users\CESAR\Desktop\toto\repositoriosProg\ClasesDeProgII\practicaParcial1\baseParcial\CarpinteriaApp\obj\Debug\CarpinteriaApp.csproj.AssemblyReference.cache
+C:\Users\CESAR\Desktop\toto\repositoriosProg\ClasesDeProgII\practicaParcial1\baseParcial\CarpinteriaApp\obj\Debug\CarpinteriaApp.Presentacion.FrmConsultarPresupuestos.resources
+C:\Users\CESAR\Desktop\toto\repositoriosProg\ClasesDeProgII\practicaParcial1\baseParcial\CarpinteriaApp\obj\Debug\CarpinteriaApp.Presentacion.FrmDetallesPresupuesto.resources
+C:\Users\CESAR\Desktop\toto\repositoriosProg\ClasesDeProgII\practicaParcial1\baseParcial\CarpinteriaApp\obj\Debug\CarpinteriaApp.Presentacion.FrmNuevoPresupuesto.resources
+C:\Users\CESAR\Desktop\toto\repositoriosProg\ClasesDeProgII\practicaParcial1\baseParcial\CarpinteriaApp\obj\Debug\CarpinteriaApp.FrmPrincipal.resources
+C:\Users\CESAR\Desktop\toto\repositoriosProg\ClasesDeProgII\practicaParcial1\baseParcial\CarpinteriaApp\obj\Debug\CarpinteriaApp.Properties.Resources.resources
+C:\Users\CESAR\Desktop\toto\repositoriosProg\ClasesDeProgII\practicaParcial1\baseParcial\CarpinteriaApp\obj\Debug\CarpinteriaApp.csproj.GenerateResource.cache
+C:\Users\CESAR\Desktop\toto\repositoriosProg\ClasesDeProgII\practicaParcial1\baseParcial\CarpinteriaApp\obj\Debug\CarpinteriaApp.csproj.CoreCompileInputs.cache
+C:\Users\CESAR\Desktop\toto\repositoriosProg\ClasesDeProgII\practicaParcial1\baseParcial\CarpinteriaApp\obj\Debug\CarpinteriaApp.exe
+C:\Users\CESAR\Desktop\toto\repositoriosProg\ClasesDeProgII\practicaParcial1\baseParcial\CarpinteriaApp\obj\Debug\CarpinteriaApp.pdb

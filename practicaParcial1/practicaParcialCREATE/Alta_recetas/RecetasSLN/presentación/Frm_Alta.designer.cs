@@ -67,7 +67,6 @@ namespace RecetasSLN
             this.txtCheff.Name = "txtCheff";
             this.txtCheff.Size = new System.Drawing.Size(310, 20);
             this.txtCheff.TabIndex = 1;
-            this.txtCheff.Text = "Ingrese el nombre del cheff";
             // 
             // label3
             // 
@@ -80,6 +79,7 @@ namespace RecetasSLN
             // 
             // cboProducto
             // 
+            this.cboProducto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboProducto.FormattingEnabled = true;
             this.cboProducto.Items.AddRange(new object[] {
             "seleccionar"});
@@ -102,6 +102,7 @@ namespace RecetasSLN
             // 
             this.dgvDetalles.AllowUserToAddRows = false;
             this.dgvDetalles.AllowUserToDeleteRows = false;
+            this.dgvDetalles.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDetalles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDetalles.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.detalle,
@@ -123,7 +124,6 @@ namespace RecetasSLN
             this.detalle.Name = "detalle";
             this.detalle.ReadOnly = true;
             this.detalle.Visible = false;
-            this.detalle.Width = 125;
             // 
             // ingrediente
             // 
@@ -131,7 +131,6 @@ namespace RecetasSLN
             this.ingrediente.MinimumWidth = 6;
             this.ingrediente.Name = "ingrediente";
             this.ingrediente.ReadOnly = true;
-            this.ingrediente.Width = 125;
             // 
             // Cantidad
             // 
@@ -139,7 +138,6 @@ namespace RecetasSLN
             this.Cantidad.MinimumWidth = 6;
             this.Cantidad.Name = "Cantidad";
             this.Cantidad.ReadOnly = true;
-            this.Cantidad.Width = 125;
             // 
             // acciones
             // 
@@ -149,7 +147,6 @@ namespace RecetasSLN
             this.acciones.ReadOnly = true;
             this.acciones.Text = "Quitar";
             this.acciones.UseColumnTextForButtonValue = true;
-            this.acciones.Width = 125;
             // 
             // btnAceptar
             // 
@@ -191,6 +188,7 @@ namespace RecetasSLN
             // 
             // cboTipo
             // 
+            this.cboTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboTipo.FormattingEnabled = true;
             this.cboTipo.Items.AddRange(new object[] {
             "1-Comida china",
@@ -219,7 +217,6 @@ namespace RecetasSLN
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(310, 20);
             this.txtNombre.TabIndex = 0;
-            this.txtNombre.Text = "Ingrese nombre de su receta";
             // 
             // label2
             // 

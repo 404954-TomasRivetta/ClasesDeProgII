@@ -45,20 +45,33 @@ namespace CarpinteriaApp.Datos.implementaciones
             try
             {
                 conexion.Open();
+
                 t = conexion.BeginTransaction();
+
                 SqlCommand comando = new SqlCommand();
+
                 comando.Connection = conexion;
+
                 comando.Transaction = t;
+
                 comando.CommandType = CommandType.StoredProcedure;
+
                 comando.CommandText = "SP_INSERTAR_MAESTRO";
+
                 comando.Parameters.AddWithValue("@cliente", oPresupuesto.Cliente);
+
                 comando.Parameters.AddWithValue("@dto", oPresupuesto.Descuento);
+
                 comando.Parameters.AddWithValue("@total", oPresupuesto.CalcularTotal());
 
                 SqlParameter parametro = new SqlParameter();
+
                 parametro.ParameterName = "@presupuesto_nro";
+
                 parametro.SqlDbType = SqlDbType.Int;
+
                 parametro.Direction = ParameterDirection.Output;
+
                 comando.Parameters.Add(parametro);
 
                 comando.ExecuteNonQuery();

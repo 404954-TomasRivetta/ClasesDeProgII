@@ -46,9 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="datos\Gestor.cs" />
-    <Compile Include="datos\IRecetasDAO.cs" />
-    <Compile Include="datos\RecetasDAO.cs" />
+    <Compile Include="datos\helper\HelperDAO.cs" />
+    <Compile Include="datos\helper\Parametro.cs" />
+    <Compile Include="datos\Implementacion\RecetaDAO.cs" />
+    <Compile Include="datos\Interfaz\IRecetaDAO.cs" />
     <Compile Include="dominio\DetalleReceta.cs" />
     <Compile Include="dominio\Ingrediente.cs" />
     <Compile Include="dominio\Receta.cs" />
@@ -60,6 +61,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="servicios\FabricaServicio.cs" />
+    <Compile Include="servicios\fabricaServicioImp.cs" />
+    <Compile Include="servicios\implementacion\Servicio.cs" />
+    <Compile Include="servicios\interfaz\IServicio.cs" />
     <EmbeddedResource Include="presentación\Frm_Alta.resx">
       <DependentUpon>Frm_Alta.cs</DependentUpon>
     </EmbeddedResource>

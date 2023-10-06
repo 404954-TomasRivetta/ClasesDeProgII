@@ -1,6 +1,7 @@
 ﻿
-using RecetasSLN.datos;
 using RecetasSLN.dominio;
+using RecetasSLN.servicios;
+using RecetasSLN.servicios.interfaz;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,170 +17,122 @@ namespace RecetasSLN
 {
     public partial class Frm_Alta : Form
     {
-        private Receta nueva;
-        private Gestor gestor;
 
+        IServicio servicio = null;
 
-        public Frm_Alta()
+        Receta nuevo = null;
+
+        public Frm_Alta(FabricaServicio fabrica)
         {
             InitializeComponent();
-            nueva = new Receta();
-            gestor = new Gestor();
-            ConsultarUltimaReceta();
-        }
 
-        private void ConsultarUltimaReceta()
-        {
-            lblNro.Text = "Receta #: " + gestor.ProximaReceta();
-        }
+            servicio = fabrica.CrearServicio();
 
-        private void btnAceptar_Click(object sender, EventArgs e)
-        {
-
-            if (txtCheff.Text == string.Empty)
-            {
-                MessageBox.Show("Debe ingresar un Chef", "Controls", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                txtCheff.Focus();
-                return;
-            }
-
-            if (dgvDetalles.Rows.Count < 3)
-            {
-                MessageBox.Show("Debe ingresar 3 ingredientes como mínimo", "Controls", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                cboProducto.Focus();
-                return;
-
-            }
-            if (txtNombre.Text == string.Empty)
-            {
-                MessageBox.Show("Debe ingresar un Nombre", "Controls", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                txtNombre.Focus();
-                return;
-            }
-            nueva.RecetaNro = gestor.ProximaReceta();   
-            nueva.Nombre = txtNombre.Text;
-            nueva.Chef = txtCheff.Text;
-            nueva.TipoReceta = Convert.ToInt32(cboTipo.SelectedIndex);
-            if (gestor.EjecutarInsert(nueva))
-            {
-                MessageBox.Show("Receta guardada");
-                LimpiarCampos();
-        
-            }
-            else
-            {
-                MessageBox.Show("Receta NO guardada");
-            }
-
-            
-        }
-            private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show("¿Está seguro que desea cancelar?", "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
-            {
-                this.Dispose();
-
-            }
-            else
-            {
-                return;
-            }
+            nuevo = new Receta();
         }
 
         private void Frm_Alta_Presupuesto_Load(object sender, EventArgs e)
         {
+            CargarProximoId();
             CargarCombo();
-           
-            
         }
 
-        private void LimpiarCampos()
+        private void CargarProximoId()
         {
-            txtNombre.Text = string.Empty;
-            txtNombre.Focus();
-            txtCheff.Text = string.Empty;
-            cboTipo.Text = string.Empty;
-            dgvDetalles.Rows.Clear();
-            lblTotalIngredientes.Text = "Total de ingredientes:";
-            ConsultarUltimaReceta();
+            lblNro.Text = "Receta #: " + servicio.TraerProximoIdReceta().ToString();
         }
+
         private void CargarCombo()
         {
-            
-
-            DataTable tabla = gestor.ListarIngredientes();
-            cboProducto.DataSource = tabla;
-            cboProducto.ValueMember = tabla.Columns[0].ColumnName;
-            cboProducto.DisplayMember = tabla.Columns[1].ColumnName;
-            cboProducto.DropDownStyle = ComboBoxStyle.DropDownList;
-
-
+            cboProducto.DataSource = servicio.TraerIngredientes();
+            cboProducto.ValueMember = "IngredienteID";
+            cboProducto.DisplayMember = "Nombre";
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            if (cboProducto.Text.Equals(string.Empty))
+            if (cboProducto.SelectedIndex == -1)
             {
-                MessageBox.Show("Debe seleccionar un ingrediente", "Controls", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Debe seleccionar un ingrediente","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 return;
             }
-
-            if (string.IsNullOrEmpty(nudCantidad.Text) || !int.TryParse(nudCantidad.Text, out _))
+            if (nudCantidad.Value <= 0)
             {
-                MessageBox.Show("Debe ingresar una cantidad válida", "Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Debe ingresar una cantidad valida", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
             foreach (DataGridViewRow row in dgvDetalles.Rows)
             {
-                if (row.Cells["Ingrediente"].Value.ToString().Equals(cboProducto.Text))
+                if (row.Cells["ingrediente"].Value.ToString().Equals(cboProducto.Text))
                 {
-                    MessageBox.Show("Este ingrediente ya está cargado.", "Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("Este ingrediente ya esta en la receta...", "Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;
                 }
             }
 
+            Ingrediente i = (Ingrediente)cboProducto.SelectedItem;
 
-            DataRowView item = (DataRowView)cboProducto.SelectedItem;
-            int ingr = Convert.ToInt32(item.Row.ItemArray[0]);
-            string nom = item.Row.ItemArray[1].ToString();
-            
-            Ingrediente i = new Ingrediente(ingr, nom);
             int cant = Convert.ToInt32(nudCantidad.Value);
-            DetalleReceta detalle = new DetalleReceta(i, cant);
 
-            nueva.AgregarReceta(detalle);
+            DetalleReceta detalle = new DetalleReceta(i,cant);
 
-            dgvDetalles.Rows.Add(new object[] { ingr, nom, cant });
+            nuevo.AgregarReceta(detalle);
 
-            ActualizarTotales();
+            dgvDetalles.Rows.Add(new object[] {i.IngredienteID,i.Nombre,cant,"Quitar"});
+
+            CargarTotalIngredientes();
+
         }
 
-        private void ActualizarTotales()
+        private void CargarTotalIngredientes()
         {
-            lblTotalIngredientes.Text = "Total de ingredientes:" + dgvDetalles.Rows.Count;
+            lblTotalIngredientes.Text = "Total de ingredientes: " + dgvDetalles.RowCount;
         }
-        private bool ExisteProductoEnGrilla(string text)
-        {
-            foreach (DataGridViewRow fila in dgvDetalles.Rows)
-            {
-                if (fila.Cells["producto"].Value.Equals(text))
-                    return true;
-            }
-            return false;
-        }
-
-       
-
-
 
         private void dgvDetalles_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dgvDetalles.CurrentCell.ColumnIndex == 3)
             {
-                nueva.Eliminar(dgvDetalles.CurrentRow.Index);
-                dgvDetalles.Rows.Remove(dgvDetalles.CurrentRow);
+                nuevo.Eliminar(dgvDetalles.CurrentRow.Index);
+                dgvDetalles.Rows.RemoveAt(dgvDetalles.CurrentRow.Index);
+
+                CargarTotalIngredientes();
+            }
+        }
+
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+            if (txtNombre.Text == string.Empty)
+            {
+                MessageBox.Show("Debe ingresar el nombre de receta", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (txtCheff.Text == string.Empty)
+            {
+                MessageBox.Show("Debe ingresar un cheff", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (cboTipo.SelectedIndex == -1)
+            {
+                MessageBox.Show("Debe seleccionar un tipo de comida", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (servicio.CrearReceta(nuevo))
+            {
+                MessageBox.Show("Se registro la reseta");
+            }
+            else
+            {
+                MessageBox.Show("NO se registro la reseta");
+
+            }
+        }
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Seguro desea cancelar la receta?", "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                this.Dispose();
             }
         }
     }
