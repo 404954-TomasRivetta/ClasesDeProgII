@@ -86,8 +86,7 @@ namespace PresupuestoCarpinteria.Presentacion
                 dt.Producto.Precio,
                 dt.Cantidad,
                 "Quitar"
-                
-            
+               
             });
 
             CalcularTotales();

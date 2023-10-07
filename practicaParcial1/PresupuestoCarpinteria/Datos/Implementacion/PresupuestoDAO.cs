@@ -5,9 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PresupuestoCarpinteria.Datos.Implementacion
 {
@@ -29,7 +26,7 @@ namespace PresupuestoCarpinteria.Datos.Implementacion
 
                 t = conexion.BeginTransaction();
 
-                SqlCommand comando = new SqlCommand("SP_INSERTAR_MAESTRO",conexion,t);
+                SqlCommand comando = new SqlCommand("SP_INSERTAR_MAESTRO", conexion, t);
 
                 comando.CommandType = CommandType.StoredProcedure;
 
@@ -105,7 +102,7 @@ namespace PresupuestoCarpinteria.Datos.Implementacion
 
                 double pre = Convert.ToDouble(row[2].ToString());
 
-                Producto p = new Producto(nro,nom,pre);
+                Producto p = new Producto(nro, nom, pre);
 
                 lProductos.Add(p);
             }
@@ -115,8 +112,22 @@ namespace PresupuestoCarpinteria.Datos.Implementacion
 
         public int ObtenerProximoID()
         {
-            return DBHelper.getInstance().ObtenerProximoID("SP_PROXIMO_ID","@next");
+            return DBHelper.getInstance().ObtenerProximoID("SP_PROXIMO_ID", "@next");
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -132,11 +143,11 @@ namespace PresupuestoCarpinteria.Datos.Implementacion
 
             List<Parametro> lParam = new List<Parametro>();
 
-            lParam.Add(new Parametro("@fecha_desde",fechaDesde));
+            lParam.Add(new Parametro("@fecha_desde", fechaDesde));
             lParam.Add(new Parametro("@fecha_hasta", fechaHasta));
-            lParam.Add(new Parametro("@cliente",cliente));
+            lParam.Add(new Parametro("@cliente", cliente));
 
-            DataTable dt = DBHelper.getInstance().Consultar("SP_CONSULTAR_PRESUPUESTOS",lParam);
+            DataTable dt = DBHelper.getInstance().Consultar("SP_CONSULTAR_PRESUPUESTOS", lParam);
 
             foreach (DataRow row in dt.Rows)
             {
@@ -171,7 +182,7 @@ namespace PresupuestoCarpinteria.Datos.Implementacion
 
                 comando.CommandType = CommandType.StoredProcedure;
 
-                Parametro parametro = new Parametro("@presupuesto_nro",nroOrden);
+                Parametro parametro = new Parametro("@presupuesto_nro", nroOrden);
 
                 comando.Parameters.AddWithValue(parametro.Clave, parametro.Valor);
 

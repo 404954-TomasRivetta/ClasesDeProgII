@@ -1,11 +1,7 @@
 ﻿using consultar.datos.Helper;
-using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace consultar.datos
 {
@@ -21,7 +17,8 @@ namespace consultar.datos
             conexion = new SqlConnection(@"Data Source=PCCESAR;Initial Catalog=db_pedidos;Integrated Security=True");
         }
 
-        public static DBHelper getInstance() {
+        public static DBHelper getInstance()
+        {
 
             if (instancia == null)
             {
@@ -36,13 +33,14 @@ namespace consultar.datos
             return conexion;
         }
 
-        public DataTable Consultar(string nombreSP) { 
+        public DataTable Consultar(string nombreSP)
+        {
 
             DataTable tabla = new DataTable();
 
             conexion.Open();
 
-            SqlCommand comando = new SqlCommand(nombreSP,conexion);
+            SqlCommand comando = new SqlCommand(nombreSP, conexion);
 
             comando.CommandType = CommandType.StoredProcedure;
 
@@ -54,21 +52,22 @@ namespace consultar.datos
 
         }
 
-        public DataTable Consultar(string nombreSP, List<Parametro> lstParametros) { 
+        public DataTable Consultar(string nombreSP, List<Parametro> lstParametros)
+        {
 
             conexion.Open();
 
-            SqlCommand comando = new SqlCommand(nombreSP,conexion);
+            SqlCommand comando = new SqlCommand(nombreSP, conexion);
 
             comando.CommandType = CommandType.StoredProcedure;
 
             comando.Parameters.Clear();
 
-            foreach (Parametro p in  lstParametros)
+            foreach (Parametro p in lstParametros)
             {
-                comando.Parameters.AddWithValue(p.Clave,p.Valor);
+                comando.Parameters.AddWithValue(p.Clave, p.Valor);
             }
-            
+
             DataTable tabla = new DataTable();
 
             tabla.Load(comando.ExecuteReader());
@@ -86,8 +85,8 @@ namespace consultar.datos
 
             try
             {
-                SqlCommand cmd = new SqlCommand();
                 conexion.Open();
+                SqlCommand cmd = new SqlCommand();
                 t = conexion.BeginTransaction();
                 cmd.Connection = conexion;
                 cmd.CommandType = CommandType.StoredProcedure;
