@@ -1,0 +1,125 @@
+					La arquitectura CLIENTE - SERVIDOR
+
+Modelo Cliente-Servidor
+
+	Procesamiento distribuido de informacion
+
+	Cliente/es solicitan servicios
+
+	Servidor/Es exponen servicios
+
+Componentes
+	
+	Cliente
+
+	Servidor
+
+	Red
+
+	Protocolo
+
+	Base de datos
+
+Tipos de arquitectura
+
+	la de arquitectura Cliente-Servidor
+		Tiene 2 capas
+
+Ventajas
+
+	Facilita integracion entre sistemas
+	Es escalable
+	Acceso simultaneo
+
+Desventaja
+	
+	Seguridad
+	Costos economicos
+	Complejidad para configurar y disponibilizar el servidor
+
+					
+					HTTP
+
+HTTP: Hypertext Transfer Protocol
+Es un protocolo basado en el principio de cliente-servidor
+Entre el cliente y servidor puede haber uno o mas proxis
+Protocolo de comunicacion
+
+Componentes
+	Cliente
+	Proxies
+	Mensajes
+	Servidor
+
+Caracteristicas
+	Es sencillo
+	Es extensible
+	Es un protocolo con sesiones, pero sin estados
+	Esta basado en conexiones
+
+Flujo de mensaje HTTP
+
+	1 Abre una conexion TCP
+	2 Hacer una peticion HTTP
+	3 Leer la respuesta enviada por el sevidor
+	4 Cierro conexion TCP
+
+Peticiones: (REQUEST)
+
+	VER PAGINA 13
+
+Respuesta de peticion:
+	
+	VER PAGINA 14
+
+Metodos de solicitud:
+
+	Método HTTP Significado
+
+	GET Solicita una representación del recurso especificado. Las
+	solicitudes que utilizan GET solo deben recuperar datos, esto
+	implica que una de las principales características de una petición
+
+	GET es que no debe causar efectos secundarios en el servidor,
+	no deben producir nuevos registros, ni modificar los ya
+	existentes.
+
+	HEAD Solicita una respuesta idéntica a la de una solicitud GET, pero
+	sin el cuerpo de la respuesta.
+
+	POST Se utiliza para enviar una entidad al recurso especificado, lo que
+	a menudo provoca un cambio de estado o efectos secundarios
+	en el servidor.
+
+	PUT Reemplaza todas las representaciones actuales del recurso de
+	destino con la carga útil de la solicitud. Al igual que PATCH
+	ambos se usan para modificar un recurso existente.
+
+	DELETE Elimina un recurso especificado.
+
+	CONNECT Convierte la solicitud en un túnel TCP/IP. Normalmente se usa
+	para crear comunicaciones HTTPS a través de proxys HTTP sin
+	encriptación.
+
+	OPTIONS Se utiliza para describir las opciones de comunicación para el
+	recurso de destino.
+
+	TRACE Realiza una prueba de bucle de mensajes a lo largo de la ruta al
+	recurso de destino.
+
+	PATCH Se utiliza para aplicar modificaciones parciales a un recurso.
+
+
+Codigos de estado
+	Los códigos de estado de respuesta HTTP indican si se ha completado
+	satisfactoriamente una solicitud HTTP específica. Las respuestas se agrupan en
+	
+	cinco clases:
+		• Respuestas informativas (100–199),
+		• Respuestas satisfactorias (200–299),
+		• Redirecciones (300–399),
+		• Errores de los clientes (400–499),
+		• Errores de los servidores (500–599).
+	
+	Los errores mas frecuentes son:
+		VER TABLA PAG 16 Y 17

@@ -1,0 +1,24 @@
+					INTRODUCCION A SERVICIOS
+
+Que es una API
+	Es un servicio
+	Acronimo de Application Programming Interface
+	Capa de abstraccion que permiten comunicar dos programas
+	Ejemplo de Apis: una pasarela de pago, los mapas de google o bots de chat en un servicio de mensajeria
+
+Servicio web?
+	
+	es una colección de procedimientos
+	(métodos) a los que podemos llamar desde cualquier lugar de Internet o desde una
+	siendo este mecanismo de invocación totalmente independiente de la
+	plataforma que utilicemos y del lenguaje de programación en el que se haya
+	implementado internamente el servicio.
+
+	Cuando se conecta a un servidor web desde nuestro navegador, el servidor
+	devuelve la página web solicitada, que es un documento que se mostrará en el
+	navegador para que lo visualice el usuario, pero es difícilmente entendible por una
+	máquina. Se puede ver esto como web para humanos. En contraposición, los
+	Servicios Web ofrecen información con un formato estándar que puede ser
+	entendido fácilmente por una aplicación. En este caso se estaría ante una web para
+	máquinas.
+
