@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Problema42.Models;
+using System.Xml.Linq;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -26,6 +27,7 @@ namespace Problema42.Controllers
         [HttpGet("{nombre}")]
         public IActionResult Get(string nombre)
         {
+
             foreach (Moneda m in lMonedas)
             {
                 if (m.Nombre.Equals(nombre)) //m.Nombre == nombre
@@ -50,17 +52,39 @@ namespace Problema42.Controllers
             return Ok(moneda); //MANDO LA MONEDA QUE SE CREO
         }
 
-        // PUT api/<CashController>/5
-        //[HttpPut("{id}")]
-        //public void Put(int id, [FromBody] string value)
-        //{
-        //}
+        // PUT api/<CashController>/dolar
+        [HttpPut("{nombre}")]
+        public IActionResult Put(string nombre, [FromBody] Moneda moneda)
+        {
+
+            foreach (Moneda m in lMonedas)
+            {
+                if (m.Nombre.Equals(nombre)) //m.Nombre == nombre
+                {
+                    moneda.Nombre = m.Nombre;
+                    moneda.ValorEnPesos = m.ValorEnPesos;
+
+
+                }
+            }
+            return NotFound("Moneda no registrada"); //COD 404, error cliente
+        }
 
         // DELETE api/<CashController>/5
-        //[HttpDelete("{id}")]
-        //public void Delete(int id)
-        //{
-        //}
+        [HttpDelete("{nombre}")]
+        public IActionResult Delete(string nombre)
+        {
+
+            foreach (Moneda m in lMonedas)
+            {
+                if (m.Nombre.Equals(nombre)) //m.Nombre == nombre
+                {
+                    return Ok(lMonedas.Remove(m));
+                }
+            }
+            return NotFound("Moneda no registrada"); //COD 404, error cliente
+
+        }
 
 
         //CLICK DERECHO EN CARPETA, AGREGAR NUEVO ELEMENTO 'WEB', controlador de api: con acciones de lectura y escritura
