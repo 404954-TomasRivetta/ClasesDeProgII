@@ -53,7 +53,7 @@ namespace Problema42.Controllers
         }
 
         // PUT api/<CashController>/dolar
-        [HttpPut("{nombre}")]
+        [HttpPut]
         public IActionResult Put(string nombre, [FromBody] Moneda moneda)
         {
 
@@ -61,9 +61,10 @@ namespace Problema42.Controllers
             {
                 if (m.Nombre.Equals(nombre)) //m.Nombre == nombre
                 {
-                    moneda.Nombre = m.Nombre;
-                    moneda.ValorEnPesos = m.ValorEnPesos;
+                    m.Nombre = moneda.Nombre;
+                    m.ValorEnPesos = moneda.ValorEnPesos;
 
+                    return Ok(moneda);
 
                 }
             }
