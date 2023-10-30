@@ -1,0 +1,30 @@
+dentro de la solucion
+click derecho sobre la solucion
+ckick derecho 
+nuevo proyecto
+Biblioteca de clases
+la creo dentro de la carpeta de mi proyecto
+muevo la carpeta datos y entidadesa mi libreria
+
+a la CarpitenriaBack
+le instalo un paquete nugget: en examinar busco: Sql Client
+ Systen.Data.SqlClient
+
+Agregar cadena como propery, click derecho porpiedades agregar recuso y creo la cadena de conexion
+            conexion = new SqlConnection(Properties.Resources.CadenaConexion);
+
+Me paro en la solucion 
+y ahora le agrego una Api ASP.NETCORE WEBAPI
+
+le agrego los controladores correspondientes 1 controlador por cada modelo de nuestra Carpinteria Back
+
+Solucion click derecho
+
+dependencias del proyecto
+
+despues sobre la solucion
+
+el orden que quiero que se ejecuten
+
+
+Y LEAGREGO UN APLICACION WIN FORM. NO WINFORM .NET CORE
