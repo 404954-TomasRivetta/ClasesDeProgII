@@ -1,0 +1,21 @@
+la api depende del back
+y el front depende de la api y back
+y el back no depende de nadie
+
+
+API REST: forma de programar aplicaciones en la web
+
+cliente http: hacer cliente que consuma nuestra api
+
+un metodo async es asi, porque hay que esperar una respuesta, cuando llega la respuesta sigue
+lo que le pido a mi api, me lo devuelve en formato JSON
+
+
+Debo instalat un NuGet Newtonsoft.Json : Esta librería permite serializar, convertir en un objeto en una cadena en
+formato JSON y viceversa, a partir de una cadena en formato JSON construir un
+objeto o colección de objetos recibidos desde el servidor (deserializar).
+
+creamos la aplicacion de Windows Forms pero que no sea aplicacion de Windows Forms(.NET Framework)
+
+
+instalamos en la solucion CarpinteriaFront - el nuGuet: Newtonsoft.Json
