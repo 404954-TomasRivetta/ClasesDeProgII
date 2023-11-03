@@ -701,24 +701,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\alumno\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\CESAR\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\alumno\\Downloads\\clase27102023\\CarpinteriaAppBack\\CarpinteriaApi\\CarpinteriaApi.csproj",
+      "projectUniqueName": "C:\\Users\\CESAR\\Desktop\\toto\\repositoriosProg\\ClasesDeProgII\\clase27102023\\CarpinteriaAppBack\\CarpinteriaApi\\CarpinteriaApi.csproj",
       "projectName": "CarpinteriaApi",
-      "projectPath": "C:\\Users\\alumno\\Downloads\\clase27102023\\CarpinteriaAppBack\\CarpinteriaApi\\CarpinteriaApi.csproj",
-      "packagesPath": "C:\\Users\\alumno\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\alumno\\Downloads\\clase27102023\\CarpinteriaAppBack\\CarpinteriaApi\\obj\\",
+      "projectPath": "C:\\Users\\CESAR\\Desktop\\toto\\repositoriosProg\\ClasesDeProgII\\clase27102023\\CarpinteriaAppBack\\CarpinteriaApi\\CarpinteriaApi.csproj",
+      "packagesPath": "C:\\Users\\CESAR\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\CESAR\\Desktop\\toto\\repositoriosProg\\ClasesDeProgII\\clase27102023\\CarpinteriaAppBack\\CarpinteriaApi\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\alumno\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\CESAR\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -726,15 +721,14 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\alumno\\Downloads\\clase27102023\\CarpinteriaAppBack\\CarpinteriaBack\\CarpinteriaBack.csproj": {
-              "projectPath": "C:\\Users\\alumno\\Downloads\\clase27102023\\CarpinteriaAppBack\\CarpinteriaBack\\CarpinteriaBack.csproj"
+            "C:\\Users\\CESAR\\Desktop\\toto\\repositoriosProg\\ClasesDeProgII\\clase27102023\\CarpinteriaAppBack\\CarpinteriaBack\\CarpinteriaBack.csproj": {
+              "projectPath": "C:\\Users\\CESAR\\Desktop\\toto\\repositoriosProg\\ClasesDeProgII\\clase27102023\\CarpinteriaAppBack\\CarpinteriaBack\\CarpinteriaBack.csproj"
             }
           }
         }
@@ -773,7 +767,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }
